@@ -24,5 +24,33 @@ label start:
     "It's a Friday, and the train is packed with people heading home after a long week of work."
 
     "Teenagers are laughing and joking, while businesspeople are conversting, some enjoying a beverage in hand after a long week."
-
     
+    p "Well..."
+    
+    p "It won't be too long before I get home"
+    
+    scene bg outside
+    
+    "Hopping off the train, I make my way to my car"
+    
+    "*Beep* *Beep*"
+    
+    "*Car noise*"
+    
+    p "Well let's head home"
+    
+    "*Car zooms away*"
+    
+    p "Let's pick something up for Skullcat"
+    
+    "I drive to the the Bunkin Bonuts"
+    
+    p "Hi, can I get a Matcha Oreo Latte please?"
+    
+    "That'll be 14 Beeblebrox schmeckles please"
+    
+    p "Yep"
+    
+    "*Beep*"
+    
+    "I grab the drink"
