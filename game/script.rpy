@@ -53,4 +53,24 @@ label start:
     
     "*Beep*"
     
-    "I grab the drink"
+    "I grab the drink. Skullcat always loves their funky drinks"
+    
+    "I speed away heading for home"
+    
+    scene bg living_room
+    
+    p "Finally made it"
+    
+    "I hear clattering of dishes and pots in the kitchen."
+    
+    p "They must have not heard me walk in"
+    
+    "I slowly walk towards the kitchen, seeing them cleaning the dishes at the sink"
+    
+    "They don't hear me as I get closer and closer"
+    
+    "I get right behind them. They're concentrating on the dishes."
+    
+    "Their hands bubbly and they're humming a tune"
+    
+    
