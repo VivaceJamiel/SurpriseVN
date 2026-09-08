@@ -3,9 +3,31 @@ define s = Character("Skullcat", color="#c8c8ff")
 
 label start:
 
-    scene bg room
+    scene bus stop evening
+
+    show pico neutral sprite
 
     p "Ugh, my face hurts."
+
+    show pico neutral sprite at right
+
+    show skullcat neutral sprite at left
+
+    s "Yeah cause I punched you in the face dumbass"
+
+    scene condo day with fade
+
+    show pico neutral sprite at right
+
+    show skullcat neutral sprite at left
+
+    p "Woah, we're at home now?"
+
+    menu:
+        "Go eat":
+            p "Hmm, let's eat"
+        "Sleep":
+            s "Let's go  to bed"
 
     "The doors to the train close as I open the sliding door to the cabin."
 
