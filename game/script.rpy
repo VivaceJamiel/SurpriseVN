@@ -5,29 +5,11 @@ label start:
 
     scene bus stop evening
 
-    show pico neutral sprite
+    play music "audio/songs/town.mp3"
+
+    show pico neutral right with fade
 
     p "Ugh, my face hurts."
-
-    show pico neutral sprite at right
-
-    show skullcat neutral sprite at left
-
-    s "Yeah cause I punched you in the face dumbass"
-
-    scene condo day with fade
-
-    show pico neutral sprite at right
-
-    show skullcat neutral sprite at left
-
-    p "Woah, we're at home now?"
-
-    menu:
-        "Go eat":
-            p "Hmm, let's eat"
-        "Sleep":
-            s "Let's go  to bed"
 
     "The doors to the train close as I open the sliding door to the cabin."
 
@@ -37,7 +19,11 @@ label start:
 
     p "Almost home, I'm starving."
 
+    hide pico with fade
+
     "Leaning into my seat, I watch as the station starts to move, and the train begins to depart"
+
+    play sound "audio/sf/subway.mp3"
 
     "The rhythmic sound of the train on the tracks lulls me into a sense of calm."
 
