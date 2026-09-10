@@ -73,7 +73,9 @@ label start:
     
     p "They must have not heard me walk in"
     
-    "I slowly walk towards the kitchen, seeing them cleaning the dishes at the sink"
+    "I slowly walk towards the kitchen, Skullcat's undead body occupying the space at the sink"
+
+    "Their tail, furry and ends with their tail bones sticking out, swishes back in forth as they're preoccupied"
     
     "They don't hear me as I get closer and closer"
     
@@ -81,4 +83,29 @@ label start:
     
     "Their hands bubbly and they're humming a tune"
     
+    "My hands hover around their waist, and I gently grab them"
+
+    s "WAHHHHHH!"
+
+    "Their body jolts and their head shoots into the air with a rattling sound."
+
+    "Their tail straightens, fur sticking out and sharp"
+
+    "Water splashes from the dishes being dropped into the sink"
+
+    "Skull cat's body grabs their head from the air and juggles it a little before grabbing hold of it"
+
+    "They put their head back on, fitting it so it doesn't fall off"
+
+    "With a huff, Skullcat turns"
+
+    s "YOU SCARED ME!"
+
+    "I hold their arms to steady them as they settle down"
+
+    p "Haha sorry about that, I couldn't resist"
+
+    p "Are you okay?"
+
+
     
