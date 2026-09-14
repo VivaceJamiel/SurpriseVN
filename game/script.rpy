@@ -93,11 +93,9 @@ label start:
 
     "Water splashes from the dishes being dropped into the sink"
 
-    "Skull cat's body grabs their head from the air and juggles it a little before grabbing hold of it"
+    "Skull cat's head falls into their hands and juggles it a little before settling it in the arms"
 
-    "They put their head back on, fitting it so it doesn't fall off"
-
-    "With a huff, Skullcat turns"
+    "With a huff, they tilt their head towards me"
 
     s "YOU SCARED ME!"
 
