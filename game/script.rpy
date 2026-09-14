@@ -107,5 +107,72 @@ label start:
 
     p "Are you okay?"
 
+    s "Yeah, I'm fine. Just a little startled, that's all."
 
+    p "Ohh, well, I wanted too surprise you with a drink I got for you"
+
+    "I hold out the drink I got from the Bunkin Bonuts"
+
+    s "Oh, thanks! You got my favorite!"
+
+    p "No problem, I know how much you love your funky drinks"
+
+    "They wipe their hands on the cloth and take the drink form me, taking a sip"
+
+    s "Oh yeah, that hit the spot! Thanks again, Pico."
+
+    call skullcat_interaction
+
+label skullcat_interaction:
+    show skullcat neutral with fade
     
+    s "Hey, what's up?"
+
+    call question_menu
+
+label question_menu:
+    menu:
+        "How was your day?":
+            jump how_was_your_day
+        "What are you doing?":
+            jump what_are_you_doing
+        "Do you want to go out?":
+            jump do_you_want_to_go_out
+        "I have to go now.":
+            jump end_interaction
+
+label how_was_your_day:
+    p "How was your day?"
+
+    s "It was good, I had a lot of fun at work today."
+
+    p "That's great to hear!"
+
+    jump skullcat_interaction
+
+label what_are_you_doing:
+    p "What are you doing?"
+
+    s "I'm just washing the dishes, it's a bit of a chore but it needs to be done."
+
+    p "I understand, chores can be tedious."
+
+    jump skullcat_interaction
+
+label do_you_want_to_go_out:
+    p "Do you want to go out?"
+
+    s "Sure, that sounds like a great idea! Where do you want to go?"
+
+    p "How about we go to the park and have a picnic?"
+
+    s "That sounds perfect! Let's do it."
+
+    jump skullcat_interaction
+
+label end_interaction:
+    p "I have this thing I have to do, but I'll see you later."
+
+    s "Okay, go do that thing then. I'll be here when you get back."
+
+    return
