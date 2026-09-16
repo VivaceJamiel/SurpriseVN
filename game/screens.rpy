@@ -292,10 +292,8 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
-
-        spacing gui.navigation_spacing
+        xalign 0.5
+        yalign 0.7
 
         if main_menu:
 
@@ -342,6 +340,7 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
+    xalign 0.5
 
 
 ## Main Menu screen ############################################################
@@ -369,12 +368,15 @@ screen main_menu():
 
         vbox:
             style "main_menu_vbox"
+            xalign 0.5
+            yalign 0.3
 
             text "[config.name!t]":
                 style "main_menu_title"
 
             text "[config.version]":
                 style "main_menu_version"
+                xalign 0.5
 
 
 style main_menu_frame is empty
@@ -387,14 +389,10 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    #background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
-    xalign 1.0
-    xoffset -30
-    xmaximum 1200
-    yalign 1.0
-    yoffset -30
+    xalign 0.5
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
