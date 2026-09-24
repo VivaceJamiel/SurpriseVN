@@ -2,9 +2,6 @@
 define s = Character("Skullcat", color="#c8c8ff")
 
 label start:
-
-    jump chapter_4
-
     label chapter_1:
         window hide
 
