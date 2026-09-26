@@ -53,6 +53,8 @@ define gui.hover_muted_color = '#5b1e99'
 define gui.text_color = '#ffffff'
 define gui.interface_text_color = '#ffffff'
 
+define gui.chosen_choice_color = '#181818'
+
 
 ## Fonts and Font Sizes ########################################################
 

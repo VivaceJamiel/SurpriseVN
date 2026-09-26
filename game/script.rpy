@@ -62,18 +62,56 @@ label start:
         "*Car zooms away*"
         
         p "Let's pick something up for Skullcat"
-        
-        "I drive to the the Bunkin Bonuts"
-        
-        p "Hi, can I get a Matcha Oreo Latte please?"
-        
-        "That'll be 14 Beeblebrox schmeckles please"
-        
-        p "Yep"
-        
-        "*Beep*"
-        
-        "I grab the drink. Skullcat always loves their funky drinks"
+
+        p "I wander what they would like..."
+
+        label sk_gift:
+
+            if has_gift:
+                menu:
+                    "Funky Drink" (flag="has_drink"):
+                        if has_drink:
+                            "I already got them a funky drink, maybe I should get them something else"
+                            jump sk_gift
+                        else:
+                            $ has_drink = True
+                            $ has_gift = True
+                            jump bunkin_bonuts
+                    "Chicken Nuggets" (flag="has_nuggets"):
+                        if has_nuggets:
+                            "I already got them some chicken nuggets, maybe I should get them something else"
+                            jump sk_gift
+                        else:
+                            $ has_nuggets = True
+                            $ has_gift = True
+                            jump mcdonalds
+                    "Cookies" (flag="has_cookies"):
+                        if has_cookies:
+                            "I already got them some cookies, maybe I should get them something else"
+                            jump sk_gift
+                        else:
+                            $ has_cookies = True
+                            $ has_gift = True
+                            jump cookies
+                    "Let's head home" (flag="went_home"):
+                        "I got all I need for Skullcat, let's head home"
+            else:
+                menu:
+                    "Funky Drink" (flag="has_drink"):
+                        $ has_drink = True
+                        $ has_gift = True
+                        jump bunkin_bonuts
+                    "Chicken Nuggets" (flag="has_nuggets"):
+                        $ has_nuggets = True
+                        $ has_gift = True
+                        jump mcdonalds
+                    "Cookies" (flag="has_cookies"):
+                        $ has_cookies = True
+                        $ has_gift = True
+                        jump cookies
+                    "Nothing" (flag="does_nothing"):
+                        $ does_nothing = True
+                        "Hmm, maybe I should just head home and surprise them with a hug"
         
         "I speed away heading for home"
 
@@ -134,17 +172,33 @@ label start:
 
         s "Yeah, I'm fine. Just a little startled, that's all."
 
-        p "Ohh, well, I wanted too surprise you with a drink I got for you"
+        if has_drink:
+            p "I got you a drink from the Bunkin Bonuts, I know how much you love your funky drinks"
+            
+            "I hold out the drink I got from the Bunkin Bonuts"
 
-        "I hold out the drink I got from the Bunkin Bonuts"
+            s "Oh, thanks! You got my favorite!"
 
-        s "Oh, thanks! You got my favorite!"
+            p "No problem, I know how much you love your funky drinks"
 
-        p "No problem, I know how much you love your funky drinks"
+            "They wipe their hands on the cloth and take the drink from me, taking a sip"
 
-        "They wipe their hands on the cloth and take the drink from me, taking a sip"
+            s "Oh yeah, that hit the spot! Thanks again, Pico."
 
-        s "Oh yeah, that hit the spot! Thanks again, Pico."
+        elif has_nuggets:
+            p "I got you some chicken nuggets from McDonald's, I know how much you love your spicy buffalo sauce"
+
+            s "Oh, thanks! You got my favorite!"
+
+            p "No problem, I know how much you love your chicken nuggets and spicy buffalo sauce"
+
+            "They wipe their hands on the cloth and take the nuggets from me, taking a bite"
+
+            s "Oh yeah, that hit the spot! Thanks again, Pico."
+
+        else:
+            p "So what do you want to do now?"
+
 
     label chapter_4:
 
@@ -207,3 +261,58 @@ label do_you_want_to_go_out:
     s "That sounds perfect! Let's do it."
 
     jump skullcat_interaction
+
+label bunkin_bonuts:
+    "I drive to the the Bunkin Bonuts"
+    
+    p "Hi, can I get a Matcha Oreo Latte please?"
+    
+    "That'll be 14 Beeblebrox schmeckles please"
+    
+    p "Yep"
+    
+    "*Beep*"
+    
+    "I grab the drink. Skullcat always loves their funky drinks"
+
+    $ has_drink = True
+
+    jump sk_gift
+
+label mcdonalds:
+    "I drive to the McDonald's"
+
+    p "Hi, can I get a 10 piece Chicken Nuggets please?"
+
+    "What sauce would you like?"
+
+    p "Buffalo sauce please"
+
+    "That'll be 2 Graham's number of schmeckles please"
+    
+    p "Wow that's a lot of money for some chicken nuggets"
+
+    "*Beep*"
+
+    "I grab the nuggets. Skullcat always loves their chicken nuggets and spicy buffalo sauce"
+
+    $ has_nuggets = True
+
+    jump sk_gift
+
+label cookies:
+    "I drive to the Cookie Shop"
+
+    p "Hi, can I get a dozen chocolate chip cookies please?"
+
+    "That'll be 3 Fish(3) schmeckles please"
+
+    p "Kinda cheap for some cookies, but I guess that's good"
+
+    "*Beep*"
+
+    "I grab the cookies. Skullcat always loves their cookies"
+
+    $ has_cookies = True  
+
+    jump sk_gift

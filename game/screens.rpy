@@ -3,7 +3,19 @@
 ################################################################################
 
 init offset = -1
+default has_drink = False
+default has_nuggets = False
+default has_cookies = False
+default does_nothing = False
+default has_gift = False
+default went_home = False
 
+init python:
+    def set_flag(flag, value=True):
+        setattr(store, flag, value)
+
+    def get_flag(flag):
+        return getattr(store, flag, False)
 
 ################################################################################
 ## Styles
@@ -209,8 +221,13 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            $ flag = i.kwargs.get("flag", None)
+            $ chosen = get_flag(flag) if flag else False
 
+            if chosen:
+                textbutton i.caption action i.action text_style "chosen_choice_button"
+            else:
+                textbutton i.caption action i.action
 
 style choice_vbox is vbox
 style choice_button is button
@@ -228,6 +245,9 @@ style choice_button is default:
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
+
+style chosen_choice_button is choice_button_text:
+    color gui.chosen_choice_color
 
 
 ## Quick Menu screen ###########################################################
