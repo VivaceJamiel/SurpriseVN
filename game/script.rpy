@@ -75,7 +75,6 @@ label start:
                             jump sk_gift
                         else:
                             $ has_drink = True
-                            $ has_gift = True
                             jump bunkin_bonuts
                     "Chicken Nuggets" (flag="has_nuggets"):
                         if has_nuggets:
@@ -83,7 +82,6 @@ label start:
                             jump sk_gift
                         else:
                             $ has_nuggets = True
-                            $ has_gift = True
                             jump mcdonalds
                     "Cookies" (flag="has_cookies"):
                         if has_cookies:
@@ -91,8 +89,14 @@ label start:
                             jump sk_gift
                         else:
                             $ has_cookies = True
-                            $ has_gift = True
                             jump cookies
+                    "Ice Cream sandwich" (flag="has_ice_cream"):
+                        if has_ice_cream:
+                            "I already got them an ice cream sandwich, maybe I should get them something else"
+                            jump sk_gift
+                        else:
+                            $ has_ice_cream = True
+                            jump ice_cream
                     "Let's head home" (flag="went_home"):
                         "I got all I need for Skullcat, let's head home"
             else:
@@ -109,6 +113,10 @@ label start:
                         $ has_cookies = True
                         $ has_gift = True
                         jump cookies
+                    "Ice Cream sandwich" (flag="has_ice_cream"):
+                        $ has_ice_cream = True
+                        $ has_gift = True
+                        jump ice_cream
                     "Nothing" (flag="does_nothing"):
                         $ does_nothing = True
                         "Hmm, maybe I should just head home and surprise them with a hug"
@@ -116,7 +124,7 @@ label start:
         "I speed away heading for home"
 
     label chapter_3:
-        scene condo kitchen:
+        scene condo day:
             xsize config.screen_width
             ysize config.screen_height
         with dissolve
@@ -131,7 +139,12 @@ label start:
         
         "I slowly walk towards the kitchen, Skullcat's undead body occupying the space at the sink"
 
-        show skullcat neutral with fade
+        scene condo kitchen:
+            xsize config.screen_width
+            ysize config.screen_height
+        with fade
+
+        show skullcat neutral with dissolve
 
         "Their tail, furry and ends with their tail bones sticking out, swishes back in forth as they're preoccupied"
         
@@ -171,31 +184,50 @@ label start:
         p "Are you okay?"
 
         s "Yeah, I'm fine. Just a little startled, that's all."
+        if has_gift:
+            if has_drink:
+                p "I got you a drink from the Bunkin Bonuts, I know how much you love your funky drinks"
+                
+                "I hold out the drink I got from the Bunkin Bonuts"
 
-        if has_drink:
-            p "I got you a drink from the Bunkin Bonuts, I know how much you love your funky drinks"
-            
-            "I hold out the drink I got from the Bunkin Bonuts"
+                s "Oh, thanks! You got my favorite!"
 
-            s "Oh, thanks! You got my favorite!"
+                p "No problem, I know how much you love your funky drinks"
 
-            p "No problem, I know how much you love your funky drinks"
+                "They take the drink from me, taking a sip"
 
-            "They wipe their hands on the cloth and take the drink from me, taking a sip"
+                s "Mmm, funk drink!"
+            if has_nuggets:
+                p "I got you some chicken nuggets from McDonald's"
 
+                s "Oh, wow spibesy!"
+
+                p "Yaya, I know how much you love your chicken nuggets and spicy buffalo sauce"
+
+                "They take the nuggets from me, opened the sauce packet, dipped a nugget, and took a bite"
+
+                s "Mmm, spicy buffalo sauce is so good!"
+            if has_cookies:
+                p "I got you some cookies from the Cookie Shop, I know how much you love your cookies"
+
+                s "Oh, funk yeah! Chocolate Chip is so good!"
+
+                p "No problem, I know how much you love your cookies"
+
+                "They take the cookies from me, taking a bite"
+
+                s "Mmm, chocolate chip cookies are so bussin!"
+            if has_ice_cream:
+                p "I got you an ice cream sandwich from the Ice Cream Shop"
+
+                s "Yipee ice cream sandwich! Ice cream sandwiches are so good!"
+
+                p "No problem, I know how much you love your ice cream sandwiches"
+
+                "They take the ice cream sandwich from me, taking a bite"
+
+                s "Mmm, thats nice and cold, just how I like it!"
             s "Oh yeah, that hit the spot! Thanks again, Pico."
-
-        elif has_nuggets:
-            p "I got you some chicken nuggets from McDonald's, I know how much you love your spicy buffalo sauce"
-
-            s "Oh, thanks! You got my favorite!"
-
-            p "No problem, I know how much you love your chicken nuggets and spicy buffalo sauce"
-
-            "They wipe their hands on the cloth and take the nuggets from me, taking a bite"
-
-            s "Oh yeah, that hit the spot! Thanks again, Pico."
-
         else:
             p "So what do you want to do now?"
 
@@ -269,8 +301,14 @@ label bunkin_bonuts:
     
     "That'll be 14 Beeblebrox schmeckles please"
     
-    p "Yep"
+    p "..."
+
+    p "How about 15 Beeblebrox schmeckles?"
+
+    "16 take it or leave it"
     
+    p "..."
+
     "*Beep*"
     
     "I grab the drink. Skullcat always loves their funky drinks"
@@ -289,6 +327,8 @@ label mcdonalds:
     p "Buffalo sauce please"
 
     "That'll be 2 Graham's number of schmeckles please"
+
+    p "..."
     
     p "Wow that's a lot of money for some chicken nuggets"
 
@@ -314,5 +354,22 @@ label cookies:
     "I grab the cookies. Skullcat always loves their cookies"
 
     $ has_cookies = True  
+
+    jump sk_gift
+
+label ice_cream:
+    "I drive to the Ice Cream Shop"
+
+    p "Hi, can I get an ice cream sandwich please?"
+
+    "That'll be 1 squillion schmeckles please"
+
+    p "Hmm... that's a lot of money for an ice cream sandwich, but I guess it's worth it"
+
+    "*Beep*"
+
+    "I grab the ice cream sandwich. Skullcat always loves their ice cream sandwiches"
+
+    $ has_ice_cream = True
 
     jump sk_gift

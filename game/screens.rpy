@@ -3,11 +3,15 @@
 ################################################################################
 
 init offset = -1
+
+default has_gift = False
+
 default has_drink = False
 default has_nuggets = False
 default has_cookies = False
+default has_ice_cream = False
+
 default does_nothing = False
-default has_gift = False
 default went_home = False
 
 init python:
