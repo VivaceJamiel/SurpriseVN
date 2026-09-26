@@ -2,6 +2,9 @@
 define s = Character("Skullcat", color="#c8c8ff")
 
 label start:
+
+    jump chapter_4
+
     label chapter_1:
         window hide
 
@@ -231,7 +234,6 @@ label start:
         else:
             p "So what do you want to do now?"
 
-
     label chapter_4:
 
         scene condo:
@@ -243,56 +245,10 @@ label start:
         
         play music "audio/songs/regrowth.mp3"
 
-        call skullcat_interaction
+        jump skullcat_interaction
 
-        p "I have this thing I have to do, but I'll see you later."
 
-        s "Okay, go do that thing then. I'll be here when you get back."
-
-        return
-
-label skullcat_interaction:
-    call question_menu
-
-label question_menu:
-    menu:
-        "How was your day?":
-            jump how_was_your_day
-        "What are you doing?":
-            jump what_are_you_doing
-        "Do you want to go out?":
-            jump do_you_want_to_go_out
-        "I have to go now.":
-            return
-
-label how_was_your_day:
-    p "How was your day?"
-
-    s "It was good, I had a lot of fun at work today."
-
-    p "That's great to hear!"
-
-    jump skullcat_interaction
-
-label what_are_you_doing:
-    p "What are you doing?"
-
-    s "I'm just washing the dishes, it's a bit of a chore but it needs to be done."
-
-    p "I understand, chores can be tedious."
-
-    jump skullcat_interaction
-
-label do_you_want_to_go_out:
-    p "Do you want to go out?"
-
-    s "Sure, that sounds like a great idea! Where do you want to go?"
-
-    p "How about we go to the park and have a picnic?"
-
-    s "That sounds perfect! Let's do it."
-
-    jump skullcat_interaction
+# Gifts
 
 label bunkin_bonuts:
     "I drive to the the Bunkin Bonuts"
@@ -373,3 +329,167 @@ label ice_cream:
     $ has_ice_cream = True
 
     jump sk_gift
+
+# Conversation
+
+label i_love_you:
+    p "I love you Skullcat <3"
+
+    s "Oh, I love you too Pico"
+
+    p "Cutie boy"
+
+    "Skull cat gets bashful and laughs a little"
+
+    s "You're cute too"
+
+    jump talk
+
+label how_was_your_day:
+    p "How was your day?"
+
+    s "It was good, I had a lot of fun at work today."
+
+    p "That's great to hear!"
+    
+    jump talk
+
+label what_are_you_doing:
+    p "What are you doing?"
+
+    s "I'm just washing the dishes, it's a bit of a chore but it needs to be done."
+
+    p "I understand, chores can be tedious."
+
+    jump talk
+
+label do_you_want_to_go_out:
+    p "Do you want to go out?"
+
+    s "Sure, that sounds like a great idea! Where do you want to go?"
+
+    p "How about we go to the park and have a picnic?"
+
+    s "That sounds perfect! Let's do it."
+
+    scene black with fade
+
+    "We head out for a bit, walking to the park and talking"
+
+    "Enjoying the cool night air, we take a few laps"
+
+    "We head home after a bit"
+
+    scene condo:
+        xsize config.screen_width
+        ysize config.screen_height
+    with dissolve
+
+    jump skullcat_interaction
+
+# Endings
+
+label watch_boo_tube:
+    p "You want to watch some BooTube?"
+
+    s "Sure what do you want to watch?"
+
+    p "What about 16bit Ronald?"
+
+    s "Oh he was playing tranquil plateau earlier, let's watch that!"
+
+    p "Heck yeah"
+
+    scene black with fade
+
+    "We watch videos late into the night. Cuddling and being warm"
+
+    "Eventually we both get tired and fall asleep"
+
+    "Both at peace and in each other's arms"
+
+    jump ending_game
+
+label play_game:
+
+    p "We should play some League of Champions"
+
+    s "Sure I'm down"
+
+    p "I can't wait to play bot lane with you"
+
+    scene black with fade
+
+    "We boot up the game on our PCs"
+
+    "We dominate our games, winning against the other players who were new to life"
+
+    "Before we know it, its 12 AM"
+
+    "We head to bed, feeling good and satisfied"
+
+    jump ending_game
+
+label eeper_bobeepers:
+    p "I'm eeper bobeepers"
+
+    s "Ohh tired? You did have a longday,"
+
+    p "Yeah, let's go to sleep?"
+
+    s "Sure, I'm tired too"
+
+    scene black with fade
+
+    "We both snuggle into bed and get under the covers"
+
+    "Pressing our bodies close, we both wiggle with excitement"
+
+    "As we lay and enjoy each other's company, we both get tired"
+
+    "We fall asleep listening to the sounds of the night"
+
+    jump ending_game
+
+# Helpers
+
+label skullcat_interaction:
+    call question_menu
+
+label talk:
+    menu:
+        "How was your day?":
+            jump how_was_your_day
+        "What are you doing?":
+            jump what_are_you_doing
+        "I love you Skullcat":
+            jump i_love_you
+        "Let's do something else":
+            s "What do you want to do?"
+            jump question_menu
+
+label question_menu:
+    menu:
+        "Let's talk":
+            jump talk
+        "Want to watch something?":
+            jump watch_boo_tube
+        "Let's play some League of Champions":
+            jump play_game
+        "Let's go out":
+            if went_out:
+                s "We already went out Pico. Let's relax at home"
+                jump skullcat_interaction
+            else:
+                jump do_you_want_to_go_out
+        "I'm eeper bobeepers":
+            jump eeper_bobeepers
+        "I have to go now.":
+            s "Pico, where are you going to go? It's late and you live here, Dummy"
+
+            p "You are so right haha"
+
+            jump skullcat_interaction
+
+label ending_game:
+    $ MainMenu(confirm=False)()    

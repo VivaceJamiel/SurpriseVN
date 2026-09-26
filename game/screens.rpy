@@ -14,6 +14,8 @@ default has_ice_cream = False
 default does_nothing = False
 default went_home = False
 
+default went_out = False
+
 init python:
     def set_flag(flag, value=True):
         setattr(store, flag, value)
