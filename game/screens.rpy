@@ -313,19 +313,19 @@ style quick_button_text:
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
 
-screen navigation():
+screen navigation(on_main_menu_screen=False):
 
     vbox:
         style_prefix "navigation"
 
-        if main_menu:
+        if on_main_menu_screen:
             xalign 0.5
             yalign 0.7
         else:
             xoffset 60
             yalign 0.5
 
-        if main_menu:
+        if on_main_menu_screen:
 
             textbutton _("Start") action Start()
 
@@ -337,7 +337,7 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Options") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -392,7 +392,7 @@ screen main_menu():
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
-    use navigation
+    use navigation(True)
 
     if gui.show_name:
 
