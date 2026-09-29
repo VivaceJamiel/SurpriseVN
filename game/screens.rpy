@@ -320,7 +320,7 @@ screen navigation():
 
         if main_menu:
             xalign 0.5
-            yalign 0.7
+            yalign 0.8
         else:
             xoffset 60
             yalign 0.5
@@ -399,15 +399,12 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
             xalign 0.5
-            yalign 0.3
+            yalign 0.2
+
+            add Transform("menu/main menu.png", zoom=0.5)
 
             text "[config.name!t]":
                 style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
-                xalign 0.5
-
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox

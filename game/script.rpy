@@ -1,10 +1,10 @@
 ﻿define p = Character("Pico", color="#c8ffc8")
 define s = Character("Skullcat", color="#c8c8ff")
 
+image pico = Transform("images/Characters/pico.png", zoom=1.4, xzoom=-1.0, yoffset=400)
+image skullcat = Transform("images/Characters/skullcat.png", zoom=1.4, yoffset=400)
+
 label start:
-
-    jump chapter_4
-
     label chapter_1:
         window hide
 
@@ -16,7 +16,7 @@ label start:
 
         play music "audio/songs/town.mp3"
 
-        show pico neutral right with dissolve
+        show pico with dissolve
 
         window show
 
@@ -147,7 +147,7 @@ label start:
             ysize config.screen_height
         with fade
 
-        show skullcat neutral with dissolve
+        show skullcat with dissolve
 
         "Their tail, furry and ends with their tail bones sticking out, swishes back in forth as they're preoccupied"
         
@@ -155,7 +155,7 @@ label start:
 
         show skullcat at right
         
-        show pico neutral right at left
+        show pico at left
         with fade
 
         "I get right behind them. They're concentrating on the dishes."
@@ -166,7 +166,7 @@ label start:
 
         s "WAHHHHHH!"
 
-        show skullcat neutral left at right
+        show skullcat at right, Transform(xzoom=-1.0)
 
         "Their body jolts and their head shoots into the air with a rattling sound."
 
@@ -241,7 +241,7 @@ label start:
             ysize config.screen_height
         with dissolve
 
-        show skullcat neutral with dissolve
+        show skullcat with dissolve
         
         play music "audio/songs/regrowth.mp3"
 
